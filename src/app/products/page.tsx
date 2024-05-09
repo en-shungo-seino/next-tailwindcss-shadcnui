@@ -15,7 +15,9 @@ export type Product = {
 
 const Products = async () => {
   const url = `${process.env.TEST_API}/products`;
-  const products = await fetch(url).then((res) => res.json());
+  const products = await fetch(url, { cache: "no-store" }).then((res) =>
+    res.json()
+  );
   console.log(products);
 
   return (
